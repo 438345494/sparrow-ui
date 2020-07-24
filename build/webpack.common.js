@@ -1,12 +1,21 @@
-'use strict'
 
-const PATH = require('path')
+const path = require('path')
 
 module.exports = {
     mode: 'production',
-    entry: PATH.resolve(__dirname, '../packages/index.js'),
+    entry: '../src/index.js',
     output: {
-        filename: '[name].js',
-        path: PATH.resolve(__dirname, '../dist')
-    }
+        filename: '123.js',
+        path: path.join(__dirname, '../dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: 'babel-loader',
+                exclude: /node_modules/
+            }
+        ]
+    },
+    plugins: []
 }
